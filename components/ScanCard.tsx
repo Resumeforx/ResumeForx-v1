@@ -202,7 +202,7 @@ export default function ScanCard() {
 
       <p
         style={{ transitionDelay: "1000ms" }}
-        className={`mt-[22px] text-center text-sm text-ink-soft transition-all duration-700 ${shown ? "opacity-100 translate-y-0" : "opacity-0 translate-y-1"}`}
+        className={`mt-[22px] text-center text-sm text-white/55 transition-all duration-700 ${shown ? "opacity-100 translate-y-0" : "opacity-0 translate-y-1"}`}
       >
         Same experience, restructured to pass ATS scanners and catch a recruiter&apos;s eye.
       </p>

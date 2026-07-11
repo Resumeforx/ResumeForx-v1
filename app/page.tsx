@@ -2,66 +2,54 @@ import Link from "next/link";
 import PageShell from "@/components/PageShell";
 import Reveal from "@/components/Reveal";
 import ScanCard from "@/components/ScanCard";
-import SectionHead from "@/components/SectionHead";
 import PricingCards from "@/components/PricingCards";
 import FaqAccordion from "@/components/FaqAccordion";
 import CtaBanner from "@/components/CtaBanner";
 import { waLink, faqs, testimonials } from "@/lib/site";
 
-const pains = [
-  { t: "No keywords", d: "Generic resumes miss the exact terms recruiters' software searches for." },
-  { t: "Bad formatting", d: "Tables and columns that look nice but ATS software reads as garbled." },
-  { t: "Duties, not results", d: "Listing responsibilities instead of outcomes recruiters actually care about." },
-  { t: "One resume, every role", d: "The same file sent everywhere — tailored to nothing in particular." },
-];
-
 const steps = [
-  { n: "01", t: "Share your details", d: "Send your current resume or details over WhatsApp or our short form. Takes about 5 minutes." },
-  { n: "02", t: "We write & optimize", d: "A career-focused rewrite, structured for ATS software and human recruiters at the same time." },
-  { n: "03", t: "Apply with confidence", d: "Get Word and PDF versions, ready to send, with a summary of what changed and why." },
+  { n: "01", t: "Send your details", d: "Your current resume or details on WhatsApp. 5 minutes, that's it." },
+  { n: "02", t: "We rewrite & optimize", d: "Built for ATS software and human recruiters at the same time." },
+  { n: "03", t: "Apply with confidence", d: "Word + PDF, ready to send, in 24–48 hours." },
 ];
-
-const avatarBg = ["from-gold-deep to-gold", "from-charcoal-2 to-charcoal", "from-gold-dark to-gold-deep"];
 
 export default function Home() {
   return (
     <PageShell>
-      {/* HERO */}
-      <section className="relative overflow-hidden bg-[#1a1a1a] px-6 pb-12 pt-14">
-        {/* soft gold glow behind the headline */}
-        <div className="pointer-events-none absolute left-1/2 top-[-140px] h-[440px] w-[640px] -translate-x-1/2 rounded-full bg-[radial-gradient(closest-side,rgba(229,168,40,0.20),transparent)]" />
-        <div className="relative mx-auto max-w-[740px] text-center">
+      {/* ===== HERO ===== */}
+      <section className="grain relative overflow-hidden px-5 pb-14 pt-12 sm:pt-16">
+        <div className="pointer-events-none absolute left-1/2 top-[-180px] h-[520px] w-[760px] -translate-x-1/2 rounded-full bg-[radial-gradient(closest-side,rgba(229,168,40,0.22),transparent)]" />
+        <div className="relative mx-auto max-w-[900px] text-center">
           <Reveal>
-            <span className="font-mono text-[11px] font-semibold uppercase tracking-[0.05em] text-gold">
-              ATS-optimized · For freshers &amp; early-career
+            <span className="font-mono text-[10.5px] font-semibold uppercase tracking-[0.06em] text-gold sm:text-[11px] sm:tracking-[0.14em]">
+              ATS-optimized · for freshers &amp; early-career
             </span>
-            <h1 className="my-5 font-display text-[clamp(36px,5.6vw,62px)] font-extrabold leading-[1.08] tracking-tight text-white">
-              We build resumes that <span className="gold-text">get you hired.</span>
+            <h1 className="mx-auto mt-4 max-w-[860px] font-display text-[clamp(42px,8.2vw,86px)] font-extrabold leading-[0.98] tracking-[-0.02em] text-white">
+              Resumes that <span className="mark whitespace-nowrap">get you hired</span>.
             </h1>
-            <p className="mx-auto mb-8 max-w-[430px] text-[17px] leading-[1.5] text-white/85">
-              A resume that clears ATS software and lands more interview calls.
+            <p className="mx-auto mt-5 max-w-[520px] text-[clamp(16px,2.2vw,20px)] leading-snug text-white/70">
+              We clear the software filters and land you the interview calls.
             </p>
-            <div className="flex flex-wrap justify-center gap-3.5">
-              <a href={waLink()} className="gold-grad-bg rounded-lg px-[26px] py-3.5 text-sm font-semibold text-[#3A2705] transition-transform hover:-translate-y-0.5">
-                Get my resume now
+            <div className="mt-8 flex flex-wrap justify-center gap-3">
+              <a href={waLink()} className="gold-grad-bg rounded-full px-7 py-3.5 text-[15px] font-bold text-[#3A2705] transition-transform hover:-translate-y-0.5">
+                Get my resume →
               </a>
-              <Link href="/samples" className="rounded-lg border border-white/20 px-[26px] py-3.5 text-sm font-semibold text-white transition-colors hover:border-white/50 hover:bg-white/5">
-                View sample resume
+              <Link href="/samples" className="rounded-full border border-white/20 px-7 py-3.5 text-[15px] font-semibold text-white transition-colors hover:border-white/50 hover:bg-white/5">
+                See the difference
               </Link>
             </div>
-            <p className="mt-7 font-mono text-xs uppercase tracking-[0.12em] text-white/40">Delivered in 24–48 hours</p>
           </Reveal>
 
           <Reveal>
-            <div className="mx-auto mt-10 flex max-w-[760px] flex-wrap overflow-hidden rounded-2xl border border-white/10 bg-white/[0.04]">
+            <div className="mx-auto mt-11 flex max-w-[640px] items-stretch justify-center divide-x divide-white/10 rounded-2xl border border-white/10 bg-white/[0.03]">
               {[
-                { n: "24–48h", l: "Typical turnaround", gold: true },
-                { n: "ATS", l: "Score proof included", gold: false },
-                { n: "100%", l: "Human written, not templated", gold: false },
-              ].map((s, i) => (
-                <div key={i} className={`min-w-[150px] flex-1 px-5 py-6 text-center ${i < 2 ? "border-b border-white/[0.08] sm:border-b-0 sm:border-r" : ""}`}>
-                  <div className={`font-display text-[26px] font-bold ${s.gold ? "gold-text" : "text-white"}`}>{s.n}</div>
-                  <div className="mt-1 text-[12.5px] text-white/60">{s.l}</div>
+                { n: "24–48h", l: "Delivery", gold: true },
+                { n: "ATS", l: "Score proof", gold: false },
+                { n: "100%", l: "Human-written", gold: false },
+              ].map((s) => (
+                <div key={s.l} className="flex-1 px-3 py-4">
+                  <div className={`font-display text-[clamp(22px,4vw,30px)] font-extrabold ${s.gold ? "gold-text" : "text-white"}`}>{s.n}</div>
+                  <div className="mt-0.5 font-mono text-[10.5px] uppercase tracking-[0.1em] text-white/45">{s.l}</div>
                 </div>
               ))}
             </div>
@@ -69,53 +57,76 @@ export default function Home() {
         </div>
       </section>
 
-      {/* SCAN */}
-      <section className="px-6 py-15" style={{ paddingTop: "60px", paddingBottom: "60px" }}>
+      {/* ===== TRUST VIDEO ===== */}
+      <section className="px-5 py-12">
+        <div className="mx-auto max-w-[880px]">
+          <Reveal>
+            <div className="mb-6 flex items-end justify-between gap-4">
+              <div>
+                <span className="font-mono text-[11px] font-semibold uppercase tracking-[0.16em] text-gold">Watch first</span>
+                <h2 className="mt-2 font-display text-[clamp(26px,4.6vw,42px)] font-extrabold leading-[1.02] tracking-tight text-white">
+                  See it in 60 seconds
+                </h2>
+              </div>
+              <span className="hidden font-mono text-[12px] text-white/30 sm:block">/ 01</span>
+            </div>
+          </Reveal>
+          <Reveal>
+            {/* Swap this block for the real video: drop an <iframe> (YouTube) or a
+                <video src="/intro.mp4" controls poster="/video-poster.jpg" /> here. */}
+            <div className="group relative aspect-video w-full overflow-hidden rounded-[20px] border border-white/10 bg-[#1C1917]">
+              <div className="grain absolute inset-0" />
+              <div className="pointer-events-none absolute left-1/2 top-1/2 h-[220px] w-[220px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(closest-side,rgba(229,168,40,0.18),transparent)]" />
+              <div className="absolute inset-0 flex flex-col items-center justify-center gap-4">
+                <div className="flex h-[76px] w-[76px] items-center justify-center rounded-full bg-gold text-[26px] text-[#3A2705] shadow-[0_10px_40px_-6px_rgba(229,168,40,0.6)] transition-transform group-hover:scale-105">
+                  ▶
+                </div>
+                <p className="font-mono text-[11.5px] uppercase tracking-[0.14em] text-white/45">Intro video · add your clip here</p>
+              </div>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* ===== BEFORE / AFTER ===== */}
+      <section className="px-5 py-12">
+        <div className="mx-auto mb-7 max-w-[880px]">
+          <Reveal>
+            <div className="flex items-end justify-between gap-4">
+              <div>
+                <span className="font-mono text-[11px] font-semibold uppercase tracking-[0.16em] text-gold">The rewrite</span>
+                <h2 className="mt-2 font-display text-[clamp(26px,4.6vw,42px)] font-extrabold leading-[1.02] tracking-tight text-white">
+                  Same you, <span className="mark">restructured</span>
+                </h2>
+              </div>
+              <span className="hidden font-mono text-[12px] text-white/30 sm:block">/ 02</span>
+            </div>
+          </Reveal>
+        </div>
         <ScanCard />
       </section>
 
-      {/* PAIN */}
-      <section id="pain" className="px-6 py-20">
-        <div className="mx-auto max-w-[1140px]">
-          <SectionHead
-            eyebrow="The problem"
-            title="Why good resumes get rejected before a human sees them"
-            sub="Most companies scan applications with software first. A resume built for people alone often never makes it past that filter."
-          />
-          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {pains.map((p) => (
-              <Reveal key={p.t}>
-                <div className="h-full rounded-[14px] border border-charcoal/10 bg-panel p-6 transition-all hover:-translate-y-1 hover:border-gold/40">
-                  <div className="mb-4 flex h-8 w-8 items-center justify-center rounded-lg bg-[#FBEAE7] text-[15px] font-bold text-[#C0392B]">✕</div>
-                  <h3 className="mb-1.5 text-[15.5px] font-semibold">{p.t}</h3>
-                  <p className="text-[13.5px] leading-[1.55] text-ink-soft">{p.d}</p>
-                </div>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* HOW */}
-      <section id="how" className="bg-charcoal px-6 py-20 text-[#EDEDEA]">
-        <div className="mx-auto max-w-[1140px]">
+      {/* ===== HOW IT WORKS ===== */}
+      <section id="how" className="px-5 py-12">
+        <div className="mx-auto max-w-[1080px]">
           <Reveal>
-            <div className="mx-auto mb-[46px] max-w-[600px] text-center">
-              <span className="font-mono text-[11.5px] font-medium uppercase tracking-[0.14em] text-gold">The process</span>
-              <h2 className="mt-3 font-display text-[clamp(28px,3.6vw,40px)] font-bold tracking-tight text-white">How it works</h2>
-              <p className="mt-3.5 text-base text-[#B4B4AE]">Three steps, most of it done for you.</p>
+            <div className="mb-8 flex items-end justify-between gap-4">
+              <div>
+                <span className="font-mono text-[11px] font-semibold uppercase tracking-[0.16em] text-gold">The process</span>
+                <h2 className="mt-2 font-display text-[clamp(26px,4.6vw,42px)] font-extrabold leading-[1.02] tracking-tight text-white">
+                  Three steps. Done for you.
+                </h2>
+              </div>
+              <span className="hidden font-mono text-[12px] text-white/30 sm:block">/ 03</span>
             </div>
           </Reveal>
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+          <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
             {steps.map((s) => (
               <Reveal key={s.n}>
-                <div className="rounded-2xl border border-white/[0.08] bg-white/[0.04] p-7 transition-all hover:border-gold/40 hover:bg-white/[0.06]">
-                  <div className="mb-3.5 flex items-center gap-2 font-display text-[15px] font-bold text-gold">
-                    {s.n}
-                    <span className="h-px flex-1 bg-gold/30" />
-                  </div>
-                  <h3 className="mb-2 text-[17px] font-semibold text-white">{s.t}</h3>
-                  <p className="text-sm text-[#B4B4AE]">{s.d}</p>
+                <div className="h-full rounded-2xl border border-white/[0.08] bg-white/[0.03] p-6 transition-all hover:border-gold/40 hover:bg-white/[0.05]">
+                  <div className="font-display text-[40px] font-extrabold leading-none text-white/12">{s.n}</div>
+                  <h3 className="mt-3 text-[18px] font-bold text-white">{s.t}</h3>
+                  <p className="mt-1.5 text-[14px] leading-snug text-white/55">{s.d}</p>
                 </div>
               </Reveal>
             ))}
@@ -123,52 +134,86 @@ export default function Home() {
         </div>
       </section>
 
-      {/* TESTIMONIALS */}
-      <section id="testimonials" className="bg-bg-2 px-6 py-20">
-        <div className="mx-auto max-w-[1140px]">
-          <SectionHead eyebrow="Early feedback" title="What people are saying" sub="Real words from the first people we've helped." />
-          <div className="mx-auto grid max-w-[980px] grid-cols-1 gap-5 md:grid-cols-3">
-            {testimonials.map((t, i) => (
-              <Reveal key={t.name}>
-                <div className="flex h-full flex-col rounded-2xl border border-charcoal/10 bg-panel p-6 transition-all hover:-translate-y-1 hover:shadow-[0_22px_44px_-28px_rgba(43,43,43,0.3)]">
-                  <div className="mb-3.5 tracking-[2px] text-gold">★★★★★</div>
-                  <p className="mb-5 flex-1 text-[14.5px] leading-relaxed text-charcoal">&ldquo;{t.quote}&rdquo;</p>
-                  <div className="flex items-center gap-3">
-                    <div className={`flex h-11 w-11 flex-none items-center justify-center rounded-full bg-gradient-to-br ${avatarBg[i]} font-display text-base font-bold text-white`}>
-                      {t.initials}
-                    </div>
-                    <div>
-                      <div className="text-sm font-semibold text-charcoal">{t.name}</div>
-                      <div className="text-[12.5px] text-ink-soft">{t.role}</div>
-                    </div>
-                  </div>
+      {/* ===== PROOF: payments + reviews ===== */}
+      <section id="proof" className="px-5 py-12">
+        <div className="mx-auto max-w-[1080px]">
+          <Reveal>
+            <div className="mb-8 flex items-end justify-between gap-4">
+              <div>
+                <span className="font-mono text-[11px] font-semibold uppercase tracking-[0.16em] text-gold">Real orders</span>
+                <h2 className="mt-2 font-display text-[clamp(26px,4.6vw,42px)] font-extrabold leading-[1.02] tracking-tight text-white">
+                  Students who <span className="mark">got the call</span>
+                </h2>
+              </div>
+              <span className="hidden font-mono text-[12px] text-white/30 sm:block">/ 04</span>
+            </div>
+          </Reveal>
+
+          {/* payment / WhatsApp screenshots — drop real (blurred) images into public/proof/ */}
+          <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
+            {[1, 2, 3, 4].map((i) => (
+              <Reveal key={i}>
+                <div className="grain relative flex aspect-[9/16] flex-col items-center justify-center gap-2 overflow-hidden rounded-2xl border border-white/10 bg-[#1C1917] p-4 text-center">
+                  <div className="flex h-11 w-11 items-center justify-center rounded-full bg-[#25D366]/15 text-[18px] text-[#25D366]">✓</div>
+                  <p className="font-mono text-[10px] uppercase leading-relaxed tracking-[0.1em] text-white/40">
+                    Payment / WhatsApp screenshot
+                  </p>
                 </div>
               </Reveal>
             ))}
           </div>
-          <p className="mx-auto mt-10 max-w-[640px] text-center text-[13.5px] italic text-ink-faint">
-            Placeholder examples — replace with real client reviews (name, role, quote) as they come in.
+          <p className="mt-4 text-center font-mono text-[11px] text-white/30">
+            Replace these with real order screenshots (blur names &amp; numbers) — drop them in <span className="text-white/50">public/proof/</span>
           </p>
+
+          {/* short reviews */}
+          <div className="mt-10 grid grid-cols-1 gap-4 md:grid-cols-3">
+            {testimonials.map((t) => (
+              <Reveal key={t.name}>
+                <div className="flex h-full flex-col rounded-2xl border border-white/[0.08] bg-white/[0.03] p-6">
+                  <div className="mb-3 tracking-[3px] text-gold">★★★★★</div>
+                  <p className="flex-1 text-[14.5px] leading-relaxed text-white/80">&ldquo;{t.quote}&rdquo;</p>
+                  <div className="mt-4 text-[13px] font-semibold text-white">
+                    {t.name} <span className="font-normal text-white/45">· {t.role}</span>
+                  </div>
+                </div>
+              </Reveal>
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* PRICING PREVIEW */}
-      <section className="px-6 py-20">
-        <div className="mx-auto max-w-[1140px]">
-          <SectionHead eyebrow="Pricing" title="Simple, honest pricing" sub="No hidden fees. Pick what you need." />
+      {/* ===== PRICING ===== */}
+      <section className="px-5 py-12">
+        <div className="mx-auto max-w-[1080px]">
+          <Reveal>
+            <div className="mb-8 flex items-end justify-between gap-4">
+              <div>
+                <span className="font-mono text-[11px] font-semibold uppercase tracking-[0.16em] text-gold">Pricing</span>
+                <h2 className="mt-2 font-display text-[clamp(26px,4.6vw,42px)] font-extrabold leading-[1.02] tracking-tight text-white">
+                  Simple, honest pricing
+                </h2>
+              </div>
+              <span className="hidden font-mono text-[12px] text-white/30 sm:block">/ 05</span>
+            </div>
+          </Reveal>
           <PricingCards />
-          <div className="mt-8 text-center">
-            <Link href="/pricing" className="inline-flex items-center gap-1.5 font-semibold text-gold-dark transition-all hover:gap-2.5">
-              See full pricing &amp; premium plan →
+          <div className="mt-7 text-center">
+            <Link href="/pricing" className="inline-flex items-center gap-1.5 text-[15px] font-semibold text-gold transition-all hover:gap-2.5">
+              Full pricing &amp; premium plan →
             </Link>
           </div>
         </div>
       </section>
 
-      {/* FAQ */}
-      <section className="bg-bg-2 px-6 py-20">
-        <div className="mx-auto max-w-[1140px]">
-          <SectionHead eyebrow="Questions" title="Frequently asked" />
+      {/* ===== FAQ ===== */}
+      <section className="px-5 py-12">
+        <div className="mx-auto max-w-[760px]">
+          <Reveal>
+            <h2 className="mb-6 font-display text-[clamp(26px,4.6vw,42px)] font-extrabold leading-[1.02] tracking-tight text-white">
+              Questions, answered
+            </h2>
+          </Reveal>
           <FaqAccordion items={faqs.slice(0, 5)} />
         </div>
       </section>

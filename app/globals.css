@@ -3,15 +3,19 @@
 @tailwind utilities;
 
 :root {
-  --gold-grad: linear-gradient(135deg, #F0C35A 0%, #E5A828 42%, #C6871A 100%);
+  --gold-grad: linear-gradient(135deg, #F3CB6B 0%, #E5A828 45%, #C6871A 100%);
+  --ink: #F4F2EC;
+  --ink-mute: #A6A39B;
+  --bg: #131110;
+  --surface: #1C1917;
 }
 
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 body {
-  background: #FBFBF9;
-  color: #2B2B2B;
-  line-height: 1.6;
+  background: var(--bg);
+  color: var(--ink);
+  line-height: 1.5;
   font-family: "Inter", system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
 }
@@ -24,7 +28,25 @@ body {
   -webkit-text-fill-color: transparent;
 }
 
-.reveal { opacity: 0; transform: translateY(26px); transition: opacity 0.7s ease, transform 0.7s ease; }
+/* editorial highlighter — a gold marker swipe behind key words */
+.mark {
+  background: linear-gradient(180deg, transparent 56%, rgba(229,168,40,0.40) 56%);
+  padding: 0 0.06em;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+
+/* faint film-grain texture for editorial depth on dark surfaces */
+.grain::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.6;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+}
+
+.reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
 .reveal.visible { opacity: 1; transform: translateY(0); }
 
 @media (prefers-reduced-motion: reduce) {
