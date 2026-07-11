@@ -27,39 +27,41 @@ export default function Home() {
   return (
     <PageShell>
       {/* HERO */}
-      <section className="relative px-6 pb-8 pt-16">
-        <div className="mx-auto max-w-[740px] text-center">
+      <section className="relative overflow-hidden bg-[#1a1a1a] px-6 pb-12 pt-14">
+        {/* soft gold glow behind the headline */}
+        <div className="pointer-events-none absolute left-1/2 top-[-140px] h-[440px] w-[640px] -translate-x-1/2 rounded-full bg-[radial-gradient(closest-side,rgba(229,168,40,0.20),transparent)]" />
+        <div className="relative mx-auto max-w-[740px] text-center">
           <Reveal>
-            <span className="font-mono text-[11.5px] font-medium uppercase tracking-[0.14em] text-gold-dark">
-              ATS-optimized · Built for freshers &amp; early-career
+            <span className="font-mono text-[11px] font-semibold uppercase tracking-[0.05em] text-gold">
+              ATS-optimized · For freshers &amp; early-career
             </span>
-            <h1 className="my-5 font-display text-[clamp(36px,5.6vw,62px)] font-extrabold leading-[1.08] tracking-tight">
+            <h1 className="my-5 font-display text-[clamp(36px,5.6vw,62px)] font-extrabold leading-[1.08] tracking-tight text-white">
               We build resumes that <span className="gold-text">get you hired.</span>
             </h1>
-            <p className="mx-auto mb-8 max-w-[558px] text-lg text-ink-soft">
-              Stop getting ignored by recruiters. Get a professionally designed, ATS-optimized resume that increases your chances of interview calls.
+            <p className="mx-auto mb-8 max-w-[430px] text-[17px] leading-[1.5] text-white/85">
+              A resume that clears ATS software and lands more interview calls.
             </p>
             <div className="flex flex-wrap justify-center gap-3.5">
               <a href={waLink()} className="gold-grad-bg rounded-lg px-[26px] py-3.5 text-sm font-semibold text-[#3A2705] transition-transform hover:-translate-y-0.5">
                 Get my resume now
               </a>
-              <Link href="/samples" className="rounded-lg border border-charcoal/10 px-[26px] py-3.5 text-sm font-semibold text-charcoal transition-colors hover:border-charcoal hover:bg-panel">
+              <Link href="/samples" className="rounded-lg border border-white/20 px-[26px] py-3.5 text-sm font-semibold text-white transition-colors hover:border-white/50 hover:bg-white/5">
                 View sample resume
               </Link>
             </div>
-            <p className="mt-7 font-mono text-xs uppercase tracking-[0.12em] text-ink-faint">Delivered in 24–48 hours</p>
+            <p className="mt-7 font-mono text-xs uppercase tracking-[0.12em] text-white/40">Delivered in 24–48 hours</p>
           </Reveal>
 
           <Reveal>
-            <div className="mx-auto mt-[52px] flex max-w-[760px] flex-wrap overflow-hidden rounded-2xl border border-charcoal/10 bg-panel">
+            <div className="mx-auto mt-10 flex max-w-[760px] flex-wrap overflow-hidden rounded-2xl border border-white/10 bg-white/[0.04]">
               {[
                 { n: "24–48h", l: "Typical turnaround", gold: true },
                 { n: "ATS", l: "Score proof included", gold: false },
                 { n: "100%", l: "Human written, not templated", gold: false },
               ].map((s, i) => (
-                <div key={i} className={`min-w-[150px] flex-1 px-5 py-6 text-center ${i < 2 ? "border-b border-charcoal/[0.07] sm:border-b-0 sm:border-r" : ""}`}>
-                  <div className={`font-display text-[26px] font-bold ${s.gold ? "gold-text" : ""}`}>{s.n}</div>
-                  <div className="mt-1 text-[12.5px] text-ink-soft">{s.l}</div>
+                <div key={i} className={`min-w-[150px] flex-1 px-5 py-6 text-center ${i < 2 ? "border-b border-white/[0.08] sm:border-b-0 sm:border-r" : ""}`}>
+                  <div className={`font-display text-[26px] font-bold ${s.gold ? "gold-text" : "text-white"}`}>{s.n}</div>
+                  <div className="mt-1 text-[12.5px] text-white/60">{s.l}</div>
                 </div>
               ))}
             </div>
