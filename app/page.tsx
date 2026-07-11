@@ -71,7 +71,7 @@ export default function Home() {
 
       {/* SCAN */}
       <section className="px-6 py-15" style={{ paddingTop: "60px", paddingBottom: "60px" }}>
-        <Reveal><ScanCard /></Reveal>
+        <ScanCard />
       </section>
 
       {/* PAIN */}

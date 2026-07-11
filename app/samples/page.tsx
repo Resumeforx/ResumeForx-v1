@@ -27,7 +27,7 @@ export default function SamplesPage() {
             </div>
           </Reveal>
 
-          <Reveal><ScanCard /></Reveal>
+          <ScanCard />
 
           <div className="mx-auto mt-16 grid max-w-[900px] grid-cols-1 gap-5 sm:grid-cols-3">
             {changes.map((c, i) => (
