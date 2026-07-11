@@ -2,7 +2,6 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { site, waLink } from "@/lib/site";
 
 const links = [
   { href: "/#pain", label: "Why it matters" },
@@ -48,9 +47,9 @@ export default function Navbar() {
           </div>
 
           <div className="flex items-center gap-3.5">
-            <a href={waLink()} className="hidden gold-grad-bg rounded-lg px-4 py-2 text-[13px] font-semibold text-[#3A2705] transition-transform hover:-translate-y-0.5 sm:inline-flex">
+            <Link href="/checkout" className="hidden gold-grad-bg rounded-lg px-4 py-2 text-[13px] font-semibold text-[#3A2705] transition-transform hover:-translate-y-0.5 sm:inline-flex">
               Get my resume →
-            </a>
+            </Link>
             <button
               aria-label="Menu"
               onClick={() => setOpen((v) => !v)}

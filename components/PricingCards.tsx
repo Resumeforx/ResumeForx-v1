@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { plans, waLink } from "@/lib/site";
 import Reveal from "./Reveal";
 
@@ -28,13 +29,19 @@ export default function PricingCards({ showAll = false }: { showAll?: boolean })
                 </div>
               ))}
             </div>
-            <a
-              href={waLink(`Hi ResumeForX, I'd like the ${p.name} plan (${p.price}).`)}
+            <Link
+              href={`/checkout?plan=${p.id}`}
               className={`mt-[18px] flex w-full items-center justify-center rounded-lg px-6 py-3 text-sm font-semibold transition-transform hover:-translate-y-0.5 ${
                 p.popular ? "gold-grad-bg text-[#3A2705]" : "border border-charcoal/10 text-charcoal hover:border-charcoal"
               }`}
             >
               Choose {p.name}
+            </Link>
+            <a
+              href={waLink(`Hi ResumeForX, I have a question about the ${p.name} plan.`)}
+              className="mt-2 text-center text-[12.5px] font-medium text-ink-soft underline decoration-charcoal/20 underline-offset-2 hover:text-charcoal"
+            >
+              or enquire first
             </a>
           </div>
         </Reveal>
