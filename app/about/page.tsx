@@ -18,14 +18,14 @@ export default function AboutPage() {
         <div className="mx-auto max-w-[760px]">
           <Reveal>
             <div className="mb-12 pt-5 text-center">
-              <span className="font-mono text-[11.5px] font-medium uppercase tracking-[0.14em] text-gold-dark">About us</span>
+              <span className="font-mono text-[11.5px] font-medium uppercase tracking-[0.14em] text-gold">About us</span>
               <h1 className="mt-3.5 font-display text-[clamp(30px,4.4vw,44px)] font-extrabold tracking-tight">
                 Resumes that get past the bots — and impress the humans.
               </h1>
             </div>
           </Reveal>
           <Reveal>
-            <div className="space-y-5 text-[16px] leading-relaxed text-ink-soft">
+            <div className="space-y-5 text-[16px] leading-relaxed text-white/60">
               <p>
                 ResumeForX started with a simple frustration: talented people — especially freshers and early-career professionals — were getting rejected before a recruiter ever read their resume. Not because they weren&apos;t good enough, but because their resume wasn&apos;t built for the software that screens it first.
               </p>
@@ -41,10 +41,10 @@ export default function AboutPage() {
           <div className="mt-14 grid grid-cols-1 gap-5 sm:grid-cols-3">
             {values.map((v) => (
               <Reveal key={v.t}>
-                <div className="h-full rounded-2xl border border-charcoal/10 bg-panel p-6">
+                <div className="h-full rounded-2xl border border-white/10 bg-white/[0.035] p-6">
                   <div className="mb-3 h-8 w-8 rounded-lg gold-grad-bg" />
                   <h3 className="mb-1.5 text-[15px] font-semibold">{v.t}</h3>
-                  <p className="text-[13.5px] leading-[1.55] text-ink-soft">{v.d}</p>
+                  <p className="text-[13.5px] leading-[1.55] text-white/60">{v.d}</p>
                 </div>
               </Reveal>
             ))}

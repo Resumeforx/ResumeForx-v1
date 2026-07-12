@@ -19,7 +19,7 @@ const rows = [
 
 function Cell({ v }: { v: boolean | string }) {
   if (typeof v === "boolean")
-    return v ? <span className="text-[15px] text-gold-deep">✓</span> : <span className="text-[15px] text-charcoal/30">—</span>;
+    return v ? <span className="text-[15px] text-gold-deep">✓</span> : <span className="text-[15px] text-white/30">—</span>;
   return <span>{v}</span>;
 }
 
@@ -30,9 +30,9 @@ export default function PricingPage() {
         <div className="mx-auto max-w-[1140px]">
           <Reveal>
             <div className="mx-auto mb-12 max-w-[600px] pt-5 text-center">
-              <span className="font-mono text-[11.5px] font-medium uppercase tracking-[0.14em] text-gold-dark">Pricing</span>
+              <span className="font-mono text-[11.5px] font-medium uppercase tracking-[0.14em] text-gold">Pricing</span>
               <h1 className="mt-3.5 font-display text-[clamp(30px,4.4vw,44px)] font-extrabold tracking-tight">Simple, honest pricing</h1>
-              <p className="mt-3.5 text-[17px] text-ink-soft">No hidden fees. No confusing add-ons. Pick what you need, upgrade any time.</p>
+              <p className="mt-3.5 text-[17px] text-white/60">No hidden fees. No confusing add-ons. Pick what you need, upgrade any time.</p>
             </div>
           </Reveal>
 
@@ -43,9 +43,9 @@ export default function PricingPage() {
               <table className="w-full min-w-[640px] border-collapse">
                 <thead>
                   <tr>
-                    <th className="border-b border-charcoal/10 px-4 py-3.5 text-left font-mono text-[11px] font-medium uppercase tracking-[0.04em] text-ink-soft">Feature</th>
+                    <th className="border-b border-white/10 px-4 py-3.5 text-left font-mono text-[11px] font-medium uppercase tracking-[0.04em] text-white/60">Feature</th>
                     {plans.map((p) => (
-                      <th key={p.name} className="border-b border-charcoal/10 px-4 py-3.5 text-center font-mono text-[11px] font-medium uppercase tracking-[0.04em] text-ink-soft">
+                      <th key={p.name} className="border-b border-white/10 px-4 py-3.5 text-center font-mono text-[11px] font-medium uppercase tracking-[0.04em] text-white/60">
                         {p.name}
                       </th>
                     ))}
@@ -54,9 +54,9 @@ export default function PricingPage() {
                 <tbody>
                   {rows.map((r) => (
                     <tr key={r.label}>
-                      <td className="border-b border-charcoal/10 px-4 py-3.5 text-[13.5px] font-medium text-ink-soft">{r.label}</td>
+                      <td className="border-b border-white/10 px-4 py-3.5 text-[13.5px] font-medium text-white/60">{r.label}</td>
                       {r.vals.map((v, i) => (
-                        <td key={i} className="border-b border-charcoal/10 px-4 py-3.5 text-center text-[13.5px]">
+                        <td key={i} className="border-b border-white/10 px-4 py-3.5 text-center text-[13.5px]">
                           <Cell v={v} />
                         </td>
                       ))}

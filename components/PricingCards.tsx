@@ -19,11 +19,11 @@ export default function PricingCards({ showAll = false }: { showAll?: boolean })
               </span>
             )}
             <h3 className="mb-2 text-[15px] font-semibold text-ink-soft">{p.name}</h3>
-            <div className="mb-1 font-display text-[38px] font-extrabold tracking-tight">{p.price}</div>
+            <div className="mb-1 font-display text-[38px] font-extrabold tracking-tight text-charcoal">{p.price}</div>
             <p className="mb-5 text-[13px] text-ink-soft">{p.desc}</p>
             <div className="flex-1">
               {p.features.map((f) => (
-                <div key={f} className="mb-2.5 flex items-start gap-2.5 text-[13.5px]">
+                <div key={f} className="mb-2.5 flex items-start gap-2.5 text-[13.5px] text-charcoal">
                   <span className="mt-px font-bold text-gold-deep">✓</span>
                   {f}
                 </div>

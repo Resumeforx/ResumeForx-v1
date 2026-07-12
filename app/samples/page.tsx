@@ -19,9 +19,9 @@ export default function SamplesPage() {
         <div className="mx-auto max-w-[1140px]">
           <Reveal>
             <div className="mx-auto mb-12 max-w-[600px] pt-5 text-center">
-              <span className="font-mono text-[11.5px] font-medium uppercase tracking-[0.14em] text-gold-dark">Proof, not promises</span>
+              <span className="font-mono text-[11.5px] font-medium uppercase tracking-[0.14em] text-gold">Proof, not promises</span>
               <h1 className="mt-3.5 font-display text-[clamp(30px,4.4vw,44px)] font-extrabold tracking-tight">See a real transformation</h1>
-              <p className="mt-3.5 text-[17px] text-ink-soft">
+              <p className="mt-3.5 text-[17px] text-white/60">
                 We&apos;re a new service, so instead of testimonials we&apos;d rather show you the actual work. Here&apos;s what changes when we rewrite a resume.
               </p>
             </div>
@@ -32,17 +32,17 @@ export default function SamplesPage() {
           <div className="mx-auto mt-16 grid max-w-[900px] grid-cols-1 gap-5 sm:grid-cols-3">
             {changes.map((c, i) => (
               <Reveal key={c.t}>
-                <div className="h-full rounded-2xl border border-charcoal/10 bg-panel p-6">
+                <div className="h-full rounded-2xl border border-white/10 bg-white/[0.035] p-6">
                   <div className="mb-3 font-display text-[15px] font-bold text-gold-deep">0{i + 1}</div>
                   <h3 className="mb-1.5 text-[15px] font-semibold">{c.t}</h3>
-                  <p className="text-[13.5px] leading-[1.55] text-ink-soft">{c.d}</p>
+                  <p className="text-[13.5px] leading-[1.55] text-white/60">{c.d}</p>
                 </div>
               </Reveal>
             ))}
           </div>
 
           <Reveal>
-            <p className="mx-auto mt-14 max-w-[560px] text-center text-[13.5px] italic text-ink-faint">
+            <p className="mx-auto mt-14 max-w-[560px] text-center text-[13.5px] italic text-white/45">
               Want to see a full before/after PDF? Message us on WhatsApp and we&apos;ll send a real anonymized sample.
             </p>
           </Reveal>

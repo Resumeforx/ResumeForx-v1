@@ -120,14 +120,14 @@ export default function Checkout({ initialPlan }: { initialPlan: string | null }
             e.preventDefault();
             goToPayment();
           }}
-          className="rounded-[20px] border border-charcoal/10 bg-panel p-6 sm:p-7"
+          className="rounded-[20px] border border-white/10 bg-white/[0.035] p-6 sm:p-7"
         >
-          <span className="mb-2.5 block text-[13px] font-semibold text-charcoal">Choose your plan</span>
+          <span className="mb-2.5 block text-[13px] font-semibold text-white">Choose your plan</span>
           <div className="mb-5 grid grid-cols-2 gap-2.5">
             {plans.map((p) => (
               <label
                 key={p.id}
-                className="relative flex cursor-pointer flex-col rounded-xl border border-charcoal/12 bg-bg px-3.5 py-3 transition-colors has-[:checked]:border-gold has-[:checked]:bg-gold-tint hover:border-charcoal/25"
+                className="relative flex cursor-pointer flex-col rounded-xl border border-white/12 bg-white/[0.06] px-3.5 py-3 transition-colors has-[:checked]:border-gold has-[:checked]:bg-gold/15 hover:border-white/30"
               >
                 <input
                   type="radio"
@@ -142,7 +142,7 @@ export default function Checkout({ initialPlan }: { initialPlan: string | null }
                     Popular
                   </span>
                 )}
-                <span className="text-[12.5px] font-semibold leading-tight text-charcoal">{p.name}</span>
+                <span className="text-[12.5px] font-semibold leading-tight text-white">{p.name}</span>
                 <span className="mt-0.5 font-display text-[17px] font-bold leading-tight">{p.price}</span>
               </label>
             ))}
@@ -160,11 +160,11 @@ export default function Checkout({ initialPlan }: { initialPlan: string | null }
           />
 
           <div className="mb-5">
-            <label htmlFor="field-phone" className="mb-1.5 block text-[13px] font-semibold text-charcoal">
-              WhatsApp number <span className="text-ink-faint">*</span>
+            <label htmlFor="field-phone" className="mb-1.5 block text-[13px] font-semibold text-white">
+              WhatsApp number <span className="text-white/45">*</span>
             </label>
             <div className="relative">
-              <span className="pointer-events-none absolute left-3.5 top-1/2 -translate-y-1/2 text-[14px] text-ink-soft">
+              <span className="pointer-events-none absolute left-3.5 top-1/2 -translate-y-1/2 text-[14px] text-white/60">
                 +91
               </span>
               <input
@@ -178,7 +178,7 @@ export default function Checkout({ initialPlan }: { initialPlan: string | null }
                 placeholder="10-digit mobile number"
                 aria-invalid={showErr("phone") && !phoneValid}
                 aria-describedby={showErr("phone") && !phoneValid ? "phone-error" : undefined}
-                className="w-full rounded-lg border border-charcoal/15 bg-bg py-3 pl-12 pr-3.5 text-[14px] outline-none focus:border-gold"
+                className="w-full rounded-lg border border-white/15 bg-white/[0.06] py-3 pl-12 pr-3.5 text-[14px] outline-none focus:border-gold"
               />
             </div>
             {showErr("phone") && !phoneValid && (
@@ -203,7 +203,7 @@ export default function Checkout({ initialPlan }: { initialPlan: string | null }
             placeholder="e.g. Data Analyst, Marketing"
           />
 
-          <label className="mb-1.5 block text-[13px] font-semibold text-charcoal">
+          <label className="mb-1.5 block text-[13px] font-semibold text-white">
             Anything we should know? (optional)
           </label>
           <textarea
@@ -211,7 +211,7 @@ export default function Checkout({ initialPlan }: { initialPlan: string | null }
             onChange={(e) => set("notes", e.target.value)}
             rows={3}
             placeholder="Link to current resume, deadlines, specific companies…"
-            className="mb-5 w-full resize-none rounded-lg border border-charcoal/15 bg-bg px-3.5 py-3 text-[14px] outline-none focus:border-gold"
+            className="mb-5 w-full resize-none rounded-lg border border-white/15 bg-white/[0.06] px-3.5 py-3 text-[14px] outline-none focus:border-gold"
           />
 
           <button
@@ -220,22 +220,22 @@ export default function Checkout({ initialPlan }: { initialPlan: string | null }
           >
             Continue to payment →
           </button>
-          <p className="mt-3 text-center text-[12px] text-ink-faint">
+          <p className="mt-3 text-center text-[12px] text-white/45">
             Prefer to talk first?{" "}
-            <a href={waLink()} className="font-medium text-gold-dark underline">Enquire on WhatsApp</a>
+            <a href={waLink()} className="font-medium text-gold underline">Enquire on WhatsApp</a>
           </p>
         </form>
       )}
 
       {step === "pay" && (
-        <div className="rounded-[20px] border border-charcoal/10 bg-panel p-6 text-center sm:p-7">
-          <div className="mb-1 text-[13px] text-ink-soft">Paying for</div>
+        <div className="rounded-[20px] border border-white/10 bg-white/[0.035] p-6 text-center sm:p-7">
+          <div className="mb-1 text-[13px] text-white/60">Paying for</div>
           <div className="mb-1 font-display text-[22px] font-bold">{plan.name}</div>
           <div className="mb-1 font-display text-[36px] font-extrabold gold-text">{plan.price}</div>
-          <div className="mb-5 text-[12px] text-ink-faint">One-time payment · {d.name.trim() || "your order"}</div>
+          <div className="mb-5 text-[12px] text-white/45">One-time payment · {d.name.trim() || "your order"}</div>
 
           {qrFailed ? (
-            <div className="mx-auto flex h-56 w-56 flex-col items-center justify-center gap-2 rounded-xl border border-dashed border-charcoal/20 px-4 text-[12.5px] text-ink-faint">
+            <div className="mx-auto flex h-56 w-56 flex-col items-center justify-center gap-2 rounded-xl border border-dashed border-white/20 px-4 text-[12.5px] text-white/45">
               <span>Couldn&apos;t generate the QR.</span>
               <span>Use the UPI ID below, or the Paytm QR further down.</span>
             </div>
@@ -246,12 +246,12 @@ export default function Checkout({ initialPlan }: { initialPlan: string | null }
               alt="UPI payment QR code"
               width={224}
               height={224}
-              className="mx-auto rounded-xl border border-charcoal/10 p-2"
+              className="mx-auto rounded-xl border border-white/10 p-2"
             />
           ) : (
-            <div className="relative mx-auto h-56 w-56 overflow-hidden rounded-xl border border-charcoal/10 bg-bg-2">
+            <div className="relative mx-auto h-56 w-56 overflow-hidden rounded-xl border border-white/10 bg-white/[0.05]">
               <div className="absolute inset-x-0 -top-[120px] h-[120px] animate-sweep bg-gradient-to-b from-transparent via-gold/35 to-transparent" />
-              <span className="absolute inset-0 flex items-center justify-center text-[12.5px] text-ink-faint">
+              <span className="absolute inset-0 flex items-center justify-center text-[12.5px] text-white/45">
                 Generating QR…
               </span>
             </div>
@@ -260,42 +260,42 @@ export default function Checkout({ initialPlan }: { initialPlan: string | null }
           <button
             type="button"
             onClick={copyUpi}
-            className="mt-5 flex w-full items-center justify-center gap-2 rounded-xl bg-bg-2 p-4 text-[13px] transition-colors hover:bg-[#EDECE6]"
+            className="mt-5 flex w-full items-center justify-center gap-2 rounded-xl bg-white/[0.05] p-4 text-[13px] transition-colors hover:bg-[#EDECE6]"
           >
             <span className="flex flex-col items-start">
-              <span className="text-ink-soft">Scan with any UPI app, or pay to</span>
-              <span className="font-mono text-[15px] font-medium text-charcoal">{site.upiId}</span>
+              <span className="text-white/60">Scan with any UPI app, or pay to</span>
+              <span className="font-mono text-[15px] font-medium text-white">{site.upiId}</span>
             </span>
-            <span className="ml-auto shrink-0 rounded-md border border-charcoal/15 px-2.5 py-1 font-mono text-[11px] font-medium text-ink-soft">
+            <span className="ml-auto shrink-0 rounded-md border border-white/15 px-2.5 py-1 font-mono text-[11px] font-medium text-white/60">
               {copied ? "Copied ✓" : "Copy"}
             </span>
           </button>
 
-          <details className="mt-4 rounded-xl border border-charcoal/10 p-3.5 text-left">
-            <summary className="cursor-pointer text-[13px] font-medium text-ink-soft">
+          <details className="mt-4 rounded-xl border border-white/10 p-3.5 text-left">
+            <summary className="cursor-pointer text-[13px] font-medium text-white/60">
               QR not scanning? Use our Paytm QR
             </summary>
             <div className="mt-3 flex flex-col items-center">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img src="/paytm-qr.jpg" alt="ResumeForX Paytm UPI QR code" width={220} height={240} className="rounded-lg" />
-              <p className="mt-2 text-center text-[12px] text-ink-faint">
+              <p className="mt-2 text-center text-[12px] text-white/45">
                 Enter the amount ({plan.price}) manually when paying with this QR.
               </p>
             </div>
           </details>
 
-          <label className="mt-5 flex cursor-pointer items-start gap-2.5 rounded-xl border border-charcoal/10 p-3.5 text-left transition-colors has-[:checked]:border-gold has-[:checked]:bg-gold-tint">
+          <label className="mt-5 flex cursor-pointer items-start gap-2.5 rounded-xl border border-white/10 p-3.5 text-left transition-colors has-[:checked]:border-gold has-[:checked]:bg-gold/15">
             <input
               type="checkbox"
               checked={paid}
               onChange={(e) => setPaid(e.target.checked)}
               className="mt-0.5 h-4 w-4 accent-gold"
             />
-            <span className="text-[13px] text-charcoal">I&apos;ve completed the payment</span>
+            <span className="text-[13px] text-white">I&apos;ve completed the payment</span>
           </label>
 
           {paid && (
-            <p className="mt-3 rounded-lg bg-gold-tint px-3.5 py-2.5 text-left text-[12.5px] text-gold-dark">
+            <p className="mt-3 rounded-lg bg-gold/15 px-3.5 py-2.5 text-left text-[12.5px] text-gold">
               📎 Don&apos;t forget to attach your payment screenshot in WhatsApp -- that&apos;s how we confirm it.
             </p>
           )}
@@ -303,7 +303,7 @@ export default function Checkout({ initialPlan }: { initialPlan: string | null }
           <a
             href={waSummary()}
             className={`mt-4 flex w-full items-center justify-center gap-2 rounded-lg px-6 py-3.5 text-sm font-semibold transition-transform hover:-translate-y-0.5 ${
-              paid ? "gold-grad-bg text-[#3A2705]" : "border border-charcoal/15 text-charcoal"
+              paid ? "gold-grad-bg text-[#3A2705]" : "border border-white/15 text-white"
             }`}
           >
             💬 {paid ? "Send order + payment on WhatsApp" : "Send my details on WhatsApp"}
@@ -312,14 +312,14 @@ export default function Checkout({ initialPlan }: { initialPlan: string | null }
           <button
             type="button"
             onClick={() => setStep("details")}
-            className="mt-4 text-[13px] text-ink-soft underline"
+            className="mt-4 text-[13px] text-white/60 underline"
           >
             ← Back to details
           </button>
         </div>
       )}
 
-      <p className="mt-6 text-center text-[12px] text-ink-faint">
+      <p className="mt-6 text-center text-[12px] text-white/45">
         Secure UPI payment. We never store your card or bank details.
       </p>
     </div>
@@ -330,7 +330,7 @@ function Stepper({ step }: { step: Step }) {
   return (
     <div className="mb-8 flex items-center justify-center gap-3">
       <StepDot n="1" label="Your details" state={step === "details" ? "active" : "done"} />
-      <span className={`h-px w-10 ${step === "pay" ? "bg-gold" : "bg-charcoal/15"}`} />
+      <span className={`h-px w-10 ${step === "pay" ? "bg-gold" : "bg-white/15"}`} />
       <StepDot n="2" label="Payment" state={step === "pay" ? "active" : "upcoming"} />
     </div>
   );
@@ -342,13 +342,13 @@ function StepDot({ n, label, state }: { n: string; label: string; state: "active
       <span
         className={`flex h-6 w-6 items-center justify-center rounded-full font-display text-[12px] font-bold ${
           state === "upcoming"
-            ? "border border-charcoal/20 text-ink-faint"
+            ? "border border-white/20 text-white/45"
             : "gold-grad-bg text-[#3A2705]"
         }`}
       >
         {state === "done" ? "✓" : n}
       </span>
-      <span className={`font-mono text-[11px] uppercase tracking-[0.08em] ${state === "upcoming" ? "text-ink-faint" : "text-charcoal"}`}>
+      <span className={`font-mono text-[11px] uppercase tracking-[0.08em] ${state === "upcoming" ? "text-white/45" : "text-white"}`}>
         {label}
       </span>
     </div>
@@ -379,8 +379,8 @@ function Field({
   const id = `field-${label.replace(/\W+/g, "-").toLowerCase()}`;
   return (
     <div className="mb-5">
-      <label htmlFor={id} className="mb-1.5 block text-[13px] font-semibold text-charcoal">
-        {label} {required && <span className="text-ink-faint">*</span>}
+      <label htmlFor={id} className="mb-1.5 block text-[13px] font-semibold text-white">
+        {label} {required && <span className="text-white/45">*</span>}
       </label>
       <input
         id={id}
@@ -392,7 +392,7 @@ function Field({
         autoComplete={autoComplete}
         aria-invalid={!!error}
         aria-describedby={error ? `${id}-error` : undefined}
-        className="w-full rounded-lg border border-charcoal/15 bg-bg px-3.5 py-3 text-[14px] outline-none focus:border-gold"
+        className="w-full rounded-lg border border-white/15 bg-white/[0.06] px-3.5 py-3 text-[14px] outline-none focus:border-gold"
       />
       {error && <p id={`${id}-error`} className="mt-1.5 text-[12px] text-[#C0392B]">{error}</p>}
     </div>

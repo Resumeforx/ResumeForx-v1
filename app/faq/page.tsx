@@ -14,9 +14,9 @@ export default function FaqPage() {
         <div className="mx-auto max-w-[1140px]">
           <Reveal>
             <div className="mx-auto mb-12 max-w-[600px] pt-5 text-center">
-              <span className="font-mono text-[11.5px] font-medium uppercase tracking-[0.14em] text-gold-dark">Questions</span>
+              <span className="font-mono text-[11.5px] font-medium uppercase tracking-[0.14em] text-gold">Questions</span>
               <h1 className="mt-3.5 font-display text-[clamp(30px,4.4vw,44px)] font-extrabold tracking-tight">Frequently asked questions</h1>
-              <p className="mt-3.5 text-[17px] text-ink-soft">Everything you might want to know before getting started.</p>
+              <p className="mt-3.5 text-[17px] text-white/60">Everything you might want to know before getting started.</p>
             </div>
           </Reveal>
           <FaqAccordion items={faqs} />
