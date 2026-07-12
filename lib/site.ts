@@ -71,9 +71,9 @@ export const faqs = [
   { q: "How do I pay?", a: "UPI, cards or netbanking — a secure payment link is shared once you confirm your package on WhatsApp." },
 ];
 
-// Placeholder reviews — replace with real client feedback (name, role, quote) as it comes in.
+// Real client reviews (from WhatsApp).
 export const testimonials = [
-  { initials: "AK", name: "Ankit K.", role: "B.Tech fresher, Delhi", quote: "I'd applied to 30+ companies with no callbacks. After the rewrite I got three interview calls in the first week. The formatting alone made a huge difference." },
-  { initials: "SR", name: "Sneha R.", role: "MBA graduate, Pune", quote: "Fast, professional and actually listened to what I wanted. They turned my messy internship experience into a real professional profile." },
-  { initials: "MV", name: "Manish V.", role: "Early-career, Bangalore", quote: "Got both my resume and LinkedIn done. Recruiters started reaching out within days. Worth every rupee for a fresher on a budget." },
+  { initials: "SK", name: "Shahnil Khan", role: "Restaurant Ops Manager · Dubai", quote: "Thank you so much for making my ATS CV. The formatting is clean, keywords are placed perfectly, and it looks very professional. Exactly what I needed for job applications." },
+  { initials: "G", name: "Gokul", role: "AML/KYC Analyst · Banking", quote: "Fantastic job tailoring my resume for banking compliance. They knew exactly which keywords to highlight and how to reframe my experience to match what recruiters want right now. Efficient, insightful, great communication." },
+  { initials: "M", name: "Maree", role: "Verified client", quote: "Really happy with the final result. The CV looks professional, well-structured, and easy to read — and properly ATS-friendly. I'll definitely recommend the service to others." },
 ];
