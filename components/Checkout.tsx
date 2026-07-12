@@ -46,6 +46,7 @@ export default function Checkout({ initialPlan }: { initialPlan: string | null }
   const canProceed = nameValid && phoneValid && emailValid;
 
   const note = `ResumeForX ${plan.name} - ${d.name.trim() || "order"}`;
+  const payLink = useMemo(() => upiLink(plan.amount, note), [plan, note]);
 
   // Scroll the card into view on step change so the payment step isn't
   // half off-screen if the details form pushed the page down.
@@ -232,27 +233,45 @@ export default function Checkout({ initialPlan }: { initialPlan: string | null }
           <div className="mb-1 text-[13px] text-white/60">Paying for</div>
           <div className="mb-1 font-display text-[22px] font-bold">{plan.name}</div>
           <div className="mb-1 font-display text-[36px] font-extrabold gold-text">{plan.price}</div>
-          <div className="mb-5 text-[12px] text-white/45">One-time payment · {d.name.trim() || "your order"}</div>
+          <div className="mb-6 text-[12px] text-white/45">One-time payment · {d.name.trim() || "your order"}</div>
+
+          {/* primary action: a real payment link -- opens the customer's own UPI app
+              (GPay / PhonePe / Paytm / BHIM) with the amount pre-filled. No camera,
+              no second device -- this is what actually works when someone is
+              checking out on the same phone they'd otherwise have to scan with. */}
+          <a
+            href={payLink}
+            className="gold-grad-bg flex w-full items-center justify-center gap-2 rounded-xl px-6 py-4 text-[15px] font-bold text-[#3A2705] transition-transform hover:-translate-y-0.5"
+          >
+            Pay {plan.price} via UPI →
+          </a>
+          <p className="mt-2.5 text-[11.5px] text-white/40">Opens GPay, PhonePe, Paytm or any UPI app on your phone.</p>
+
+          <div className="my-6 flex items-center gap-3 text-[11px] uppercase tracking-[0.08em] text-white/35">
+            <span className="h-px flex-1 bg-white/10" />
+            or scan from another device
+            <span className="h-px flex-1 bg-white/10" />
+          </div>
 
           {qrFailed ? (
-            <div className="mx-auto flex h-56 w-56 flex-col items-center justify-center gap-2 rounded-xl border border-dashed border-white/20 px-4 text-[12.5px] text-white/45">
+            <div className="mx-auto flex h-36 w-36 flex-col items-center justify-center gap-1.5 rounded-xl border border-dashed border-white/20 px-3 text-[11.5px] text-white/45">
               <span>Couldn&apos;t generate the QR.</span>
-              <span>Use the UPI ID below, or the Paytm QR further down.</span>
+              <span>Use the UPI ID below instead.</span>
             </div>
           ) : qr ? (
             // eslint-disable-next-line @next/next/no-img-element
             <img
               src={qr}
               alt="UPI payment QR code"
-              width={224}
-              height={224}
+              width={144}
+              height={144}
               className="mx-auto rounded-xl border border-white/10 p-2"
             />
           ) : (
-            <div className="relative mx-auto h-56 w-56 overflow-hidden rounded-xl border border-white/10 bg-white/[0.05]">
-              <div className="absolute inset-x-0 -top-[120px] h-[120px] animate-sweep bg-gradient-to-b from-transparent via-gold/35 to-transparent" />
-              <span className="absolute inset-0 flex items-center justify-center text-[12.5px] text-white/45">
-                Generating QR…
+            <div className="relative mx-auto h-36 w-36 overflow-hidden rounded-xl border border-white/10 bg-white/[0.05]">
+              <div className="absolute inset-x-0 -top-[80px] h-[80px] animate-sweep bg-gradient-to-b from-transparent via-gold/35 to-transparent" />
+              <span className="absolute inset-0 flex items-center justify-center px-3 text-center text-[11px] text-white/45">
+                Generating…
               </span>
             </div>
           )}
@@ -260,10 +279,10 @@ export default function Checkout({ initialPlan }: { initialPlan: string | null }
           <button
             type="button"
             onClick={copyUpi}
-            className="mt-5 flex w-full items-center justify-center gap-2 rounded-xl bg-white/[0.05] p-4 text-[13px] transition-colors hover:bg-[#EDECE6]"
+            className="mt-4 flex w-full items-center justify-center gap-2 rounded-xl bg-white/[0.05] p-4 text-[13px] transition-colors hover:bg-white/[0.08]"
           >
             <span className="flex flex-col items-start">
-              <span className="text-white/60">Scan with any UPI app, or pay to</span>
+              <span className="text-white/60">Or pay manually to</span>
               <span className="font-mono text-[15px] font-medium text-white">{site.upiId}</span>
             </span>
             <span className="ml-auto shrink-0 rounded-md border border-white/15 px-2.5 py-1 font-mono text-[11px] font-medium text-white/60">
@@ -273,7 +292,7 @@ export default function Checkout({ initialPlan }: { initialPlan: string | null }
 
           <details className="mt-4 rounded-xl border border-white/10 p-3.5 text-left">
             <summary className="cursor-pointer text-[13px] font-medium text-white/60">
-              QR not scanning? Use our Paytm QR
+              Payment link not opening? Use our Paytm QR
             </summary>
             <div className="mt-3 flex flex-col items-center">
               {/* eslint-disable-next-line @next/next/no-img-element */}
