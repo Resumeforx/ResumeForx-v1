@@ -149,21 +149,22 @@ export default function Home() {
             </div>
           </Reveal>
 
-          {/* payment / WhatsApp screenshots — drop real (blurred) images into public/proof/ */}
+          {/* real WhatsApp reviews from clients (sensitive details blurred) */}
           <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
             {[1, 2, 3, 4].map((i) => (
               <Reveal key={i}>
-                <div className="grain relative flex aspect-[9/16] flex-col items-center justify-center gap-2 overflow-hidden rounded-2xl border border-white/10 bg-[#1C1917] p-4 text-center">
-                  <div className="flex h-11 w-11 items-center justify-center rounded-full bg-[#25D366]/15 text-[18px] text-[#25D366]">✓</div>
-                  <p className="font-mono text-[10px] uppercase leading-relaxed tracking-[0.1em] text-white/40">
-                    Payment / WhatsApp screenshot
-                  </p>
-                </div>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={`/proof/${i}.jpg`}
+                  alt="Real client review on WhatsApp"
+                  loading="lazy"
+                  className="w-full rounded-2xl border border-white/10 shadow-[0_24px_60px_-30px_rgba(0,0,0,0.85)]"
+                />
               </Reveal>
             ))}
           </div>
-          <p className="mt-4 text-center font-mono text-[11px] text-white/30">
-            Replace these with real order screenshots (blur names &amp; numbers) — drop them in <span className="text-white/50">public/proof/</span>
+          <p className="mt-4 text-center font-mono text-[11px] text-white/35">
+            Real messages from clients on WhatsApp.
           </p>
 
           {/* short reviews */}
