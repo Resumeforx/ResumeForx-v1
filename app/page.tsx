@@ -72,17 +72,15 @@ export default function Home() {
             </div>
           </Reveal>
           <Reveal>
-            {/* Swap this block for the real video: drop an <iframe> (YouTube) or a
-                <video src="/intro.mp4" controls poster="/video-poster.jpg" /> here. */}
-            <div className="group relative aspect-video w-full overflow-hidden rounded-[20px] border border-white/10 bg-[#1C1917]">
-              <div className="grain absolute inset-0" />
-              <div className="pointer-events-none absolute left-1/2 top-1/2 h-[220px] w-[220px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(closest-side,rgba(229,168,40,0.18),transparent)]" />
-              <div className="absolute inset-0 flex flex-col items-center justify-center gap-4">
-                <div className="flex h-[76px] w-[76px] items-center justify-center rounded-full bg-gold text-[26px] text-[#3A2705] shadow-[0_10px_40px_-6px_rgba(229,168,40,0.6)] transition-transform group-hover:scale-105">
-                  ▶
-                </div>
-                <p className="font-mono text-[11.5px] uppercase tracking-[0.14em] text-white/45">Intro video · add your clip here</p>
-              </div>
+            <div className="mx-auto aspect-[9/16] w-full max-w-[380px] overflow-hidden rounded-[20px] border border-white/10 bg-[#1C1917] shadow-[0_30px_70px_-30px_rgba(0,0,0,0.7)]">
+              <video
+                className="h-full w-full object-cover"
+                src="/videos/intro.mp4"
+                poster="/videos/intro-poster.jpg"
+                controls
+                playsInline
+                preload="metadata"
+              />
             </div>
           </Reveal>
         </div>
