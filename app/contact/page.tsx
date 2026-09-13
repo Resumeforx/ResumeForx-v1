@@ -37,6 +37,12 @@ export default function ContactPage() {
                 </p>
                 <p className="text-[13px] text-white/45">Typical reply time: within a few hours, 7 days a week.</p>
               </div>
+              <div className="mt-7 border-t border-white/10 pt-6">
+                <p className="text-[13px] text-white/55">Already worked with us?</p>
+                <a href="/feedback" className="mt-1.5 inline-flex text-[13px] font-semibold text-gold hover:underline">
+                  Share your feedback →
+                </a>
+              </div>
             </div>
           </Reveal>
 

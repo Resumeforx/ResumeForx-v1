@@ -71,9 +71,18 @@ export const faqs = [
   { q: "How do I pay?", a: "UPI, cards or netbanking — a secure payment link is shared once you confirm your package on WhatsApp." },
 ];
 
-// Real client reviews (from WhatsApp).
-export const testimonials = [
-  { initials: "SK", name: "Shahnil Khan", role: "Restaurant Ops Manager · Dubai", quote: "Thank you so much for making my ATS CV. The formatting is clean, keywords are placed perfectly, and it looks very professional. Exactly what I needed for job applications." },
-  { initials: "G", name: "Gokul", role: "AML/KYC Analyst · Banking", quote: "Fantastic job tailoring my resume for banking compliance. They knew exactly which keywords to highlight and how to reframe my experience to match what recruiters want right now. Efficient, insightful, great communication." },
-  { initials: "M", name: "Maree", role: "Verified client", quote: "Really happy with the final result. The CV looks professional, well-structured, and easy to read — and properly ATS-friendly. I'll definitely recommend the service to others." },
+export type Testimonial = {
+  initials: string;
+  name: string;
+  role: string;
+  quote: string;
+  rating: number;
+  verified: boolean;
+};
+
+// Real client reviews (from WhatsApp). Add only reviews approved for publication.
+export const testimonials: Testimonial[] = [
+  { initials: "SK", name: "Shahnil Khan", role: "Restaurant Ops Manager · Dubai", quote: "Thank you so much for making my ATS CV. The formatting is clean, keywords are placed perfectly, and it looks very professional. Exactly what I needed for job applications.", rating: 5, verified: true },
+  { initials: "G", name: "Gokul", role: "AML/KYC Analyst · Banking", quote: "Fantastic job tailoring my resume for banking compliance. They knew exactly which keywords to highlight and how to reframe my experience to match what recruiters want right now. Efficient, insightful, great communication.", rating: 5, verified: true },
+  { initials: "M", name: "Maree", role: "Verified client", quote: "Really happy with the final result. The CV looks professional, well-structured, and easy to read — and properly ATS-friendly. I'll definitely recommend the service to others.", rating: 5, verified: true },
 ];

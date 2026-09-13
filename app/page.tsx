@@ -5,6 +5,7 @@ import ScanCard from "@/components/ScanCard";
 import PricingCards from "@/components/PricingCards";
 import FaqAccordion from "@/components/FaqAccordion";
 import CtaBanner from "@/components/CtaBanner";
+import ReviewCarousel from "@/components/ReviewCarousel";
 import { waLink, faqs, testimonials } from "@/lib/site";
 
 const steps = [
@@ -165,19 +166,20 @@ export default function Home() {
             Real messages from clients on WhatsApp.
           </p>
 
-          {/* short reviews */}
-          <div className="mt-10 grid grid-cols-1 gap-4 md:grid-cols-3">
-            {testimonials.map((t) => (
-              <Reveal key={t.name}>
-                <div className="flex h-full flex-col rounded-2xl border border-white/[0.08] bg-white/[0.03] p-6">
-                  <div className="mb-3 tracking-[3px] text-gold">★★★★★</div>
-                  <p className="flex-1 text-[14.5px] leading-relaxed text-white/80">&ldquo;{t.quote}&rdquo;</p>
-                  <div className="mt-4 text-[13px] font-semibold text-white">
-                    {t.name} <span className="font-normal text-white/45">· {t.role}</span>
-                  </div>
-                </div>
-              </Reveal>
-            ))}
+          <div className="mt-10 grid gap-6 lg:grid-cols-[minmax(0,1.15fr)_minmax(260px,0.65fr)] lg:items-center">
+            <Reveal>
+              <ReviewCarousel reviews={testimonials} />
+            </Reveal>
+            <Reveal>
+              <div className="rounded-2xl border border-white/[0.08] bg-white/[0.025] p-6">
+                <span className="font-mono text-[10.5px] font-semibold uppercase tracking-[0.14em] text-gold">Your turn</span>
+                <h3 className="mt-2 font-display text-[21px] font-bold leading-tight text-white">Worked with us?</h3>
+                <p className="mt-2.5 text-[13.5px] leading-relaxed text-white/55">Tell us what helped. Your feedback may help another job seeker take the next step.</p>
+                <Link href="/feedback" className="mt-5 inline-flex items-center text-[13px] font-semibold text-gold hover:underline">
+                  Leave a review →
+                </Link>
+              </div>
+            </Reveal>
           </div>
         </div>
       </section>

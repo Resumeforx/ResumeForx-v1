@@ -12,6 +12,7 @@ Built with **Next.js 14 (App Router) + TypeScript + Tailwind CSS**. Fully static
 - `/samples` — Before/after transformation
 - `/faq` — Full FAQ
 - `/contact` — WhatsApp-first contact
+- `/feedback` — Star rating and review submission
 
 ## Before you launch — edit these
 All in **`lib/site.ts`**:
@@ -19,8 +20,14 @@ All in **`lib/site.ts`**:
 - `upiId` — the UPI ID that receives payments. Currently `paytm.s2u34gd@pty` (matches the printed Paytm QR).
 - `upiPayeeName` — name shown to the payer in their UPI app
 - `email` — real contact email
-- `testimonials` — replace the placeholder reviews with real client feedback as it comes in
+- `testimonials` — add approved client feedback as it comes in. Each review includes a numeric `rating` and owner-controlled `verified` flag.
 - `plans` — adjust pricing/features. Each plan needs `id`, a `price` string, and a numeric `amount` (keep the two in sync — `amount` is what the UPI QR charges).
+
+## Feedback flow
+
+The site is currently fully static, so feedback is collected through WhatsApp rather than stored automatically. Customers submit their name, rating, review, and publication consent at `/feedback`. The form opens a pre-filled WhatsApp message for manual review.
+
+After confirming the customer and service, add the approved review to `testimonials` in `lib/site.ts` with `rating: 1` through `5` and `verified: true`. Only reviews in that list are shown publicly, and the verification mark is controlled by the owner rather than the submitter.
 
 ## Payment flow (UPI + WhatsApp)
 No payment-gateway account needed — orders are self-serve and reconciled manually:
