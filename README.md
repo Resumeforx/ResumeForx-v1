@@ -25,7 +25,7 @@ All in **`lib/site.ts`**:
 
 ## Feedback flow
 
-The site is currently fully static, so feedback is collected through WhatsApp rather than stored automatically. Customers submit their name, rating, review, and publication consent at `/feedback`. The form opens a pre-filled WhatsApp message for manual review.
+The site is currently fully static, so feedback is collected through the visitor's email app rather than stored automatically. Customers submit their name, rating, review, and publication consent at `/feedback`. The form opens a pre-filled email addressed to `site.email` for manual review, with WhatsApp available as a fallback.
 
 After confirming the customer and service, add the approved review to `testimonials` in `lib/site.ts` with `rating: 1` through `5` and `verified: true`. Only reviews in that list are shown publicly, and the verification mark is controlled by the owner rather than the submitter.
 

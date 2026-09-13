@@ -3,7 +3,7 @@ export const site = {
   name: "ResumeForX",
   tagline: "We build resumes that get you hired.",
   whatsapp: "919068726751",
-  email: "hello@resumeforx.com",
+  email: "gargmonali23@gmail.com",
   waMessage: "Hi ResumeForX, I'd like to get my resume done.",
   // UPI ID from the Paytm QR -- payments go here
   upiId: "paytm.s2u34gd@pty",
@@ -13,6 +13,23 @@ export const site = {
 
 export const waLink = (msg: string = site.waMessage) =>
   `https://wa.me/${site.whatsapp}?text=${encodeURIComponent(msg)}`;
+
+export const feedbackMailto = (name: string, role: string, rating: number, review: string) => {
+  const body = [
+    "New ResumeForX feedback",
+    "",
+    `Name: ${name}`,
+    role ? `Role / industry: ${role}` : "",
+    `Rating: ${rating}/5`,
+    "",
+    "Review:",
+    review,
+    "",
+    "The customer consented to publication after manual approval.",
+  ].filter(Boolean).join("\n");
+
+  return `mailto:${site.email}?subject=${encodeURIComponent(`New ResumeForX review from ${name}`)}&body=${encodeURIComponent(body)}`;
+};
 
 // Builds a UPI deep link / QR payload for the exact plan amount.
 export const upiLink = (amount: number, note: string) =>

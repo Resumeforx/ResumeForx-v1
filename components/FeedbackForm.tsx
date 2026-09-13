@@ -1,7 +1,7 @@
 "use client";
 
 import { FormEvent, useState } from "react";
-import { site, waLink } from "@/lib/site";
+import { feedbackMailto, site, waLink } from "@/lib/site";
 
 const ratingLabels = ["Very poor", "Needs work", "Good", "Very good", "Excellent"];
 
@@ -33,18 +33,7 @@ export default function FeedbackForm() {
     setAttempted(true);
     if (!canSubmit) return;
 
-    const message = [
-      `Hi ${site.name}, I'd like to share feedback:`,
-      "",
-      `*Name:* ${form.name.trim()}`,
-      form.role.trim() ? `*Role:* ${form.role.trim()}` : "",
-      `*Rating:* ${form.rating}/5`,
-      `*Review:* ${form.review.trim()}`,
-      "",
-      "I consent to this review being published on the ResumeForX website after approval.",
-    ].filter(Boolean).join("\n");
-
-    window.open(waLink(message), "_blank", "noopener,noreferrer");
+    window.location.href = feedbackMailto(form.name.trim(), form.role.trim(), form.rating, form.review.trim());
     setSent(true);
   };
 
@@ -54,7 +43,7 @@ export default function FeedbackForm() {
         <div className="mx-auto flex h-11 w-11 items-center justify-center rounded-full gold-grad-bg text-xl font-bold text-[#3A2705]">✓</div>
         <h2 className="mt-4 font-display text-2xl font-bold text-white">Thank you for sharing this.</h2>
         <p className="mx-auto mt-2 max-w-[420px] text-[14px] leading-relaxed text-white/65">
-          WhatsApp should be open with your feedback ready to send. We&apos;ll review it and only publish it with your approval.
+          Your email app should be open with your feedback ready to send to {site.email}. We&apos;ll review it and only publish it with your approval.
         </p>
         <button
           type="button"
@@ -156,8 +145,14 @@ export default function FeedbackForm() {
       {attempted && !consentValid && <p className="mt-1.5 text-[12px] text-[#E08B7C]">Please confirm publication consent.</p>}
 
       <button type="submit" className="gold-grad-bg mt-5 flex w-full items-center justify-center rounded-lg px-6 py-3.5 text-sm font-semibold text-[#3A2705] transition-transform hover:-translate-y-0.5">
-        Send feedback on WhatsApp →
+        Email my feedback →
       </button>
+      <a
+        href={waLink(`Hi ${site.name}, I'd like to share feedback after using your service.`)}
+        className="mt-3 flex justify-center text-[12px] font-medium text-white/50 underline underline-offset-4 hover:text-white"
+      >
+        Prefer WhatsApp? Send it there instead
+      </a>
       <p className="mt-3 text-center text-[11.5px] leading-relaxed text-white/40">Your review is not published automatically. We approve genuine feedback manually.</p>
     </form>
   );
